@@ -1,0 +1,45 @@
+name: Continuous Integration
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: ${{github.workflow}}-${{github.ref}}
+  cancel-in-progress: true
+
+jobs:
+  regenerate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set up node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install dependencies
+        run: npm install
+      - name: Regenerate parser
+        run: npx tree-sitter generate
+      - name: Check for changes
+        run: git diff --exit-code
+
+  rust:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set up Rust
+        uses: dtolnay/rust-toolchain@1.82
+      - uses: taiki-e/install-action@v2
+        with:
+          tool: nextest
+      - name: Compile
+        run: cargo build --verbose
+      - name: Unit Tests
+        run: cargo nextest run --verbose
+      - name: Doc Tests
+        run: cargo test --doc --verbose
