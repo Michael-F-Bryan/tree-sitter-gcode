@@ -10,6 +10,7 @@ categories = ["parser-implementations", "parsing", "text-editors"]
 repository = "https://github.com/michael-f-bryan/tree-sitter-gcode"
 edition = "2021"
 autoexamples = false
+rust-version = "1.82"
 
 build = "bindings/rust/build.rs"
 include = [
