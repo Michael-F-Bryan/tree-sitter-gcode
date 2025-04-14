@@ -1,0 +1,33 @@
+==============
+Simplest G-Code Command
+==============
+
+G0
+
+---
+
+(source_file
+  (statement
+    (command
+      (command_name)
+      (number))))
+
+===========
+Linear move
+===========
+
+G0 X100 Y100
+
+---
+
+(source_file
+  (statement
+    (command
+      (command_name)
+      (number))
+    (parameter
+      (letter)
+      (number))
+    (parameter
+      (letter)
+      (number))))

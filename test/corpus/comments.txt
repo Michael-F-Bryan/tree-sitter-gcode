@@ -1,0 +1,49 @@
+============
+Line Comment
+============
+
+; line comment
+
+---
+
+(source_file
+  (line_comment))
+
+==============
+Inline Comment
+==============
+
+(this is an inline comment)
+
+---
+
+(source_file
+  (inline_comment))
+
+=========================
+Multi-line inline comment
+=========================
+
+(
+  this spans over
+  multiple
+  lines
+)
+
+---
+
+(source_file
+  (inline_comment))
+
+===============================
+Inline comments can't be nested
+:error
+===============================
+
+(
+  this is an inline comment (with nested comments)
+)
+
+---
+
+
