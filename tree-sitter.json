@@ -1,0 +1,40 @@
+{
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/config.schema.json",
+  "grammars": [
+    {
+      "name": "gcode",
+      "camelcase": "Gcode",
+      "title": "G-Code",
+      "scope": "source.gcode",
+      "file-types": [
+        "gcode"
+      ],
+      "injection-regex": "^gcode$",
+      "class-name": "TreeSitterGcode"
+    }
+  ],
+  "metadata": {
+    "version": "0.1.0",
+    "license": "MIT AND Apache-2.0",
+    "description": "Gcode grammar for tree-sitter",
+    "authors": [
+      {
+        "name": "Michael-F-Bryan",
+        "email": "consulting@michaelfbryan.com",
+        "url": "https://adventures.michaelfbryan.com/"
+      }
+    ],
+    "links": {
+      "repository": "https://github.com/Michael-F-Bryan/tree-sitter-gcode"
+    }
+  },
+  "bindings": {
+    "c": true,
+    "go": true,
+    "node": true,
+    "python": true,
+    "rust": true,
+    "swift": true,
+    "zig": false
+  }
+}
